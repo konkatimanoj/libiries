@@ -1,6 +1,6 @@
-def download(repo)
+def gitdownload(repo)
 {
-   git "https://github.com/intelliqittrainings/${repo}.git"
+  git "https://github.com/sudarshansw7/${repo}.git"
 }
 def build()
 {
@@ -8,9 +8,10 @@ def build()
 }
 def deploy(jobname,ip,appname)
 {
-  sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat9/webapps/${appname}.war"
+   sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat9/webapps/${appname}.war"
 }
-def runtesting(jobname)
+
+def runselenium(jobname)
 {
-   sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
+  sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
 }
